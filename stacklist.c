@@ -1,16 +1,19 @@
 #include <stdio.h>
-#include <stack.h>
+typedef struct {
+    int num;
+}StackData;
+#include "stack.h"
 
 int main(){
-    int n;
+    StackData data;
     Stack S = initStack();
     printf("Enter some integer: (end with 0)\n");
-    scanf("%d", &n);
-    while(n != 0){
-        push(S, n);
-        scanf("%d", &n);
+    scanf("%d", &data.num);
+    while(data.num != 0){
+        push(S, data);
+        scanf("%d", &data.num);
     }
-    int top = pop(S);
-    printf("%d", top);
+    StackData top = pop(S);
+    printf("%d", top.num);
     return 0;
 }

@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "stack.h": "c",
+        "ratio": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}

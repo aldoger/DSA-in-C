@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include <stdlib.h>
 #define ROGUEVALUE -9999;
 typedef struct node {
-    int num;
+    StackData data;
     struct node *next;
 }Node, *NodePtr;
 
@@ -20,18 +19,27 @@ int empty(Stack S){
     return (S->top == NULL);
 }
 
-void push(Stack S, int n){
+void push(Stack S, StackData d){
     NodePtr np = (NodePtr)malloc(sizeof(Node));
-    np->num = n;
+    np->data = d;
     np->next = S->top;
     S->top = np;
 }
 
-int pop(Stack S){
-    if(empty(S)) return ROGUEVALUE;
-    int num = S->top->num;
+StackData pop(Stack S){
+    if(empty(S)){
+        printf("\nAttempt to pop an empty stack\n");
+        exit(1);
+    }
+    StackData hold = S->top->data;
     NodePtr temp = S->top;
     S->top = S->top->next;
     free(temp);
-    return num;
+    return hold;
+}
+
+StackData peek(Stack S){
+    if(!empty(S)) return S->top->data;
+    printf("\nAttempt to peek a empty stack\n");
+    exit(1); 
 }

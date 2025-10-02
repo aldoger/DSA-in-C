@@ -14,6 +14,7 @@ Node *makeNode(int n){
     return np;
 }
 
+//unfinish
 int main() {
     Node *top = makeNode(10);
 }
